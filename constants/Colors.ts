@@ -1,19 +1,19 @@
-const tintColorLight = '#2f95dc';
-const tintColorDark = '#fff';
+interface Color {
+  light: string;
+  dark: string;
+}
 
-export default {
-  light: {
-    text: '#000',
-    background: '#fff',
-    tint: tintColorLight,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorLight,
+type Colors = 'primary' | 'secondary';
+
+const colors: Record<Colors, Color> = {
+  primary: {
+    light: '#367BC9',
+    dark: '#3B36C9',
   },
-  dark: {
-    text: '#fff',
-    background: '#000',
-    tint: tintColorDark,
-    tabIconDefault: '#ccc',
-    tabIconSelected: tintColorDark,
-  },
+  secondary: {
+    light: '#C5C936',
+    dark: '#C98436',
+  }
 };
+
+export default colors;
