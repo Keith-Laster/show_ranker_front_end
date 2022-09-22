@@ -1,21 +1,25 @@
-import React from 'react';
-import { Button, ImageBackground, StyleSheet } from 'react-native';
+import React, { FC } from 'react';
+import { ImageBackground } from 'react-native';
 import styled from 'styled-components/native';
-import Input from '../components/Input';
+import Am from '../components/Button';
+import Button from '../components/Button';
+import FormContainer from '../components/Form/FormContainer';
+import Input from '../components/Form/Input';
+import Title from '../components/Text/Title';
 
-import { Text, View } from '../components/Themed';
 import { useTextField } from '../hooks/strings';
 
-// Local Variables
-const FormContainer = styled.View({
-  // I will make the form pretty here.
-  flex: 1,
-  justifyContent: 'center',
-  alignContent: 'center',
-  padding: '20px'
+const ScreenContainer = styled.View({
+  height: '60%',
+  flexDirection: 'column',
 })
 
-export default function Login() {
+const StyledFormContainer = styled(FormContainer)({
+  flex: 4,
+})
+
+
+const Login: FC = () => {
   const usernameTextField = useTextField();
   const passwordTextField = useTextField();
   const handleLogin = () => {
@@ -26,24 +30,28 @@ export default function Login() {
       source={require('../assets/images/retro_tv.jpg')}
       style={{ width: '100%', height: '100%' }}
     >
-      <Text>
-        Show Ranker
-      </Text>
-      <FormContainer>
-        <Input 
-          {...usernameTextField}
-          placeholder="Username"
-        />
-        <Input
-          {...passwordTextField}
-          placeholder="Password"
-          secureTextEntry={true}
-        />
-        <Button 
-          onPress={handleLogin}
-          title="Login" 
-        />
-      </FormContainer>
+      <ScreenContainer>
+        <Title>
+          Show Ranker
+        </Title>
+        <StyledFormContainer>
+          <Input
+            {...usernameTextField}
+            placeholder="Username"
+          />
+          <Input
+            {...passwordTextField}
+            placeholder="Password"
+            secureTextEntry={true}
+          />
+          <Am
+            onPress={handleLogin}
+            title="Login"
+          />
+        </StyledFormContainer>
+      </ScreenContainer>
     </ImageBackground>
   );
 }
+
+export default Login;
