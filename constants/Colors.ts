@@ -3,9 +3,9 @@ interface Color {
   dark: string;
 }
 
-type Colors = 'primary' | 'secondary';
+export type ColorsProp = 'primary' | 'secondary';
 
-const colors: Record<Colors, Color> = {
+const colors: Record<ColorsProp, Color> = {
   primary: {
     light: '#367BC9',
     dark: '#3B36C9',

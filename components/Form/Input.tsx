@@ -15,7 +15,6 @@ const StyledTextInput = styled.TextInput({
   borderWidth: 1,
   borderRadius: 10,
   padding: 10,
-  marginTop: 22,
   height: '52px',
   fontSize: '26px',
   color: Colors.primary.light,

@@ -1,7 +1,7 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { FC } from 'react';
 import { ImageBackground } from 'react-native';
 import styled from 'styled-components/native';
-import Am from '../components/Button';
 import Button from '../components/Button';
 import FormContainer from '../components/Form/FormContainer';
 import Input from '../components/Form/Input';
@@ -16,15 +16,21 @@ const ScreenContainer = styled.View({
 
 const StyledFormContainer = styled(FormContainer)({
   flex: 4,
+  alignItems: 'center',
+  justifyContent: 'space-around'
 })
 
 
 const Login: FC = () => {
   const usernameTextField = useTextField();
   const passwordTextField = useTextField();
+  const navigation = useNavigation();
+
   const handleLogin = () => {
     console.log('I will submit things');
+    navigation.navigate("Root");
   }
+
   return (
     <ImageBackground
       source={require('../assets/images/retro_tv.jpg')}
@@ -44,10 +50,11 @@ const Login: FC = () => {
             placeholder="Password"
             secureTextEntry={true}
           />
-          <Am
+          <Button
             onPress={handleLogin}
-            title="Login"
-          />
+          >
+            Login
+          </Button>
         </StyledFormContainer>
       </ScreenContainer>
     </ImageBackground>
