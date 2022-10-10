@@ -1,25 +1,37 @@
 import React, { FC } from 'react';
 import styled from 'styled-components/native';
 import Colors from '../../constants/Colors';
-import { Button as NativeButton } from 'react-native';
+import Paragraph from '../Text/Paragraph';
 
 // Local Typings
 interface Props {
-  title: any;
   onPress: () => void;
+  children: any;
 }
 
 // Local Variables
-const StyledButton = styled.Button({
-  border: `solid 2px ${Colors.primary.light}`,
+const StyledButton = styled.TouchableOpacity({
+  border: `solid 2px ${Colors.primary.dark}`,
   borderRadius: '8px',
-  backgroundColor: Colors.primary.dark,
-  color: 'red'
+  backgroundColor: Colors.primary.light,
+  color: 'red',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '280px',
 })
 
-const Button: FC<Props> = (props) => {
+
+const Button: FC<Props> = ({
+  children,
+  ...props
+}) => {
   return (
-    <StyledButton {...props} />
+    <StyledButton {...props}>
+      <Paragraph color="white">
+        {children}
+      </Paragraph>
+    </StyledButton>
   );
 }
 
